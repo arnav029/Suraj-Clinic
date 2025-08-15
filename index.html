@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suraj Clinic - Your Family Health Partner</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* Applying the custom fonts */
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-700">
+
+    <header class="bg-white/90 backdrop-blur-lg shadow-sm sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-800">Suraj Clinic</h1>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="text-slate-600 hover:text-blue-600 font-medium transition duration-300">Home</a>
+                <a href="#doctors" class="text-slate-600 hover:text-blue-600 font-medium transition duration-300">Our Doctors</a>
+                <a href="#services" class="text-slate-600 hover:text-blue-600 font-medium transition duration-300">Services</a>
+                <a href="#locations" class="text-slate-600 hover:text-blue-600 font-medium transition duration-300">Locations</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="bg-gradient-to-b from-blue-50 to-white">
+            <div class="container mx-auto px-6 text-center py-32 md:py-40">
+                <div class="max-w-3xl mx-auto">
+                    <h2 data-aos="fade-up" class="text-4xl lg:text-6xl font-bold text-slate-900 leading-tight">
+                        Your Family's Health, <br><span class="text-blue-600">Our Priority.</span>
+                    </h2>
+                    <p data-aos="fade-up" data-aos-delay="200" class="mt-6 text-lg text-slate-600">
+                        Suraj Clinic offers compassionate and comprehensive healthcare for all ages, grounded in experience and a commitment to your well-being.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="doctors" class="py-24 bg-slate-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-slate-800">Meet Our Experienced Doctors</h2>
+                    <p class="text-slate-500 mt-3 max-w-2xl mx-auto">Dedicated professionals with a shared passion for providing exceptional patient care.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+                    <div data-aos="fade-up" data-aos-delay="200" class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300">
+                        <div class="flex items-center gap-6">
+                            <img class="w-24 h-24 rounded-full object-cover ring-4 ring-blue-100" src="images/dr-narendra.jpg" alt="Photo of Dr. Narendra Patil">
+                            <div>
+                                <h3 class="text-2xl font-bold text-slate-800">Dr. Narendra Patil</h3>
+                                <p class="text-blue-600 font-semibold mt-1 inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">B.A.M.S</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 mt-6">With a deep understanding of traditional and modern medicine, Dr. Narendra Patil provides holistic care for the entire family.</p>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-delay="400" class="bg-white rounded-xl shadow-lg p-8 transform hover:scale-105 transition-transform duration-300">
+                        <div class="flex items-center gap-6">
+                            <img class="w-24 h-24 rounded-full object-cover ring-4 ring-teal-100" src="images/dr-rajashri.jpg" alt="Photo of Dr. Rajashri Patil">
+                            <div>
+                                <h3 class="text-2xl font-bold text-slate-800">Dr. Rajashri Patil</h3>
+                                <p class="text-teal-600 font-semibold mt-1 inline-block bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm">D.H.M.S</p>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 mt-6">Dr. Rajashri Patil specializes in homeopathic solutions, offering gentle and effective treatments for a variety of ailments.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="services" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-slate-800">Our Core Services</h2>
+                    <p class="text-slate-500 mt-3">Comprehensive primary care services for your entire family.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div data-aos="fade-up" data-aos-delay="100" class="bg-slate-50/70 p-8 rounded-lg text-center">
+                        <div class="bg-blue-100 text-blue-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-800 mt-6">General Consultations</h3>
+                        <p class="mt-2 text-slate-600">Diagnosis and treatment for common illnesses for all family members.</p>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="200" class="bg-slate-50/70 p-8 rounded-lg text-center">
+                        <div class="bg-blue-100 text-blue-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-800 mt-6">Preventive Care</h3>
+                        <p class="mt-2 text-slate-600">Routine health check-ups, vaccinations, and lifestyle counseling.</p>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="300" class="bg-slate-50/70 p-8 rounded-lg text-center">
+                        <div class="bg-blue-100 text-blue-600 rounded-full h-16 w-16 flex items-center justify-center mx-auto">
+                           <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-slate-800 mt-6">Chronic Disease Management</h3>
+                        <p class="mt-2 text-slate-600">Ongoing care for conditions like diabetes, hypertension, and asthma.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="locations" class="py-24 bg-slate-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-3xl lg:text-4xl font-bold text-slate-800">Visit Us at Our Clinics</h2>
+                    <p class="text-slate-500 mt-3">Two convenient locations to serve you and your family.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                    <div data-aos="fade-up" data-aos-delay="200" class="bg-white border-2 border-transparent hover:border-blue-500 p-8 rounded-lg transition-colors duration-300 shadow-md">
+                        <h3 class="text-2xl font-bold text-blue-800 mb-4">Clinic 1: Shivtirth Colony</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            8, Krushna Leela Appartments, Near Uma Hospital, Shivtirth Colony, Kamatwada Road, CIDCO, Nashik - 422009
+                        </p>
+                        <div class="mt-6 pt-6 border-t border-slate-200">
+                            <p class="text-slate-800 font-semibold">Hours: <span class="text-slate-600 font-normal">9:30 AM - 2:00 PM & 5:30 PM - 10:00 PM</span></p>
+                        </div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="400" class="bg-white border-2 border-transparent hover:border-teal-500 p-8 rounded-lg transition-colors duration-300 shadow-md">
+                        <h3 class="text-2xl font-bold text-teal-800 mb-4">Clinic 2: Indranagri</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            Aditya Bunglow, Indranagri, Kamatwade Rd, Nashik - 422008
+                        </p>
+                         <div class="mt-6 pt-6 border-t border-slate-200">
+                            <p class="text-slate-800 font-semibold">Hours: <span class="text-slate-600 font-normal">9:30 AM - 2:00 PM & 5:30 PM - 10:00 PM</span></p>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-slate-400">© <span id="year"></span> Suraj Clinic. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800, 
+            once: true,
+            offset: 50,
+        });
+
+        // Automatically update the year in the footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
