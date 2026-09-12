@@ -1,598 +1,725 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suraj Clinic - Your Family Health Partner | Nashik</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Suraj Clinic — Ayurveda, Homeopathy &amp; Family Medicine in Nashik</title>
+<meta name="description" content="Suraj Clinic, Nashik. Dr. Narendra Patil (B.A.M.S) and Dr. Rajashri Patil (D.H.M.S) provide Ayurvedic, homeopathic and general family care at two clinics in CIDCO and Indranagri. Walk-ins welcome, morning and evening hours.">
+<meta name="theme-color" content="#10425F" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A131B" media="(prefers-color-scheme: dark)">
 
-    <script src="https://cdn.tailwindcss.com"></script>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Suraj Clinic — Family Healthcare in Nashik">
+<meta property="og:description" content="Ayurveda, homeopathy and general family medicine. Two clinics in Nashik. Walk-ins welcome.">
+<meta property="og:image" content="images/opt/hero-1600.jpg">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
 
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<!-- set theme before first paint so there is no flash -->
+<script>
+  try {
+    var t = localStorage.getItem("sc-theme");
+    if (t) document.documentElement.setAttribute("data-theme", t);
+  } catch (e) {}
+</script>
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: {
-                            50:  '#eff6ff',
-                            100: '#dbeafe',
-                            200: '#bfdbfe',
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            700: '#1d4ed8',
-                            800: '#1e40af',
-                            900: '#1e3a8a',
-                        },
-                        teal: {
-                            50:  '#f0fdfa',
-                            100: '#ccfbf1',
-                            500: '#14b8a6',
-                            600: '#0d9488',
-                            700: '#0f766e',
-                            800: '#115e59',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Merriweather', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        h1, h2, h3 { font-family: 'Inter', sans-serif; }
-
-        .hero-gradient {
-            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 40%, #0f766e 100%);
-        }
-
-        .card-hover {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-        }
-
-        .service-icon-wrap {
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
-        .service-card:hover .service-icon-wrap {
-            background: #1e40af;
-            transform: scale(1.1);
-        }
-        .service-card:hover .service-icon-wrap svg {
-            color: white;
-        }
-
-        /* Mobile menu animation */
-        #mobile-menu {
-            transition: max-height 0.3s ease, opacity 0.3s ease;
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-        }
-        #mobile-menu.open {
-            max-height: 400px;
-            opacity: 1;
-        }
-
-        .nav-link {
-            position: relative;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #2563eb;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after { width: 100%; }
-
-        .stat-card {
-            border-left: 4px solid #2563eb;
-        }
-
-        .badge-bams {
-            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-            color: #1e40af;
-        }
-        .badge-dhms {
-            background: linear-gradient(135deg, #ccfbf1, #99f6e4);
-            color: #0f766e;
-        }
-    </style>
+<!-- Local SEO: two physical clinics, so two MedicalClinic entries -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalClinic",
+      "@id": "#clinic-cidco",
+      "name": "Suraj Clinic — Shivtirth Colony, CIDCO",
+      "medicalSpecialty": ["PrimaryCare", "Pediatric"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "8, Krushna Leela Apartments, Near Uma Hospital, Shivtirth Colony, Kamatwada Road, CIDCO",
+        "addressLocality": "Nashik",
+        "addressRegion": "Maharashtra",
+        "postalCode": "422009",
+        "addressCountry": "IN"
+      },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "09:30", "closes": "14:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "17:30", "closes": "22:00" }
+      ]
+    },
+    {
+      "@type": "MedicalClinic",
+      "@id": "#clinic-indranagri",
+      "name": "Suraj Clinic — Indranagri",
+      "medicalSpecialty": ["PrimaryCare", "Pediatric"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Aditya Bunglow, Indranagri, Kamatwade Road",
+        "addressLocality": "Nashik",
+        "addressRegion": "Maharashtra",
+        "postalCode": "422008",
+        "addressCountry": "IN"
+      },
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "09:30", "closes": "14:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"], "opens": "17:30", "closes": "22:00" }
+      ]
+    },
+    {
+      "@type": "Physician",
+      "name": "Dr. Narendra Patil",
+      "honorificSuffix": "B.A.M.S",
+      "medicalSpecialty": "PrimaryCare",
+      "worksFor": { "@id": "#clinic-cidco" }
+    },
+    {
+      "@type": "Physician",
+      "name": "Dr. Rajashri Patil",
+      "honorificSuffix": "D.H.M.S",
+      "medicalSpecialty": "PrimaryCare",
+      "worksFor": { "@id": "#clinic-cidco" }
+    }
+  ]
+}
+</script>
 </head>
-<body class="bg-white text-slate-700 antialiased">
 
-    <!-- ===== NAVIGATION ===== -->
-    <header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-100">
-        <nav class="container mx-auto px-6 py-0">
-            <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
-                <a href="#home" class="flex items-center gap-3">
-                    <div class="bg-primary-800 text-white rounded-lg w-9 h-9 flex items-center justify-center font-bold text-sm flex-shrink-0">SC</div>
-                    <div>
-                        <span class="text-xl font-bold text-primary-900 leading-none">Suraj Clinic</span>
-                        <p class="text-[10px] text-slate-500 font-medium tracking-wide uppercase leading-none mt-0.5">Family Healthcare</p>
-                    </div>
-                </a>
+<body>
+<div id="progress" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
 
-                <!-- Desktop Nav -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="nav-link text-slate-600 hover:text-primary-700 font-medium text-sm transition-colors">Home</a>
-                    <a href="#doctors" class="nav-link text-slate-600 hover:text-primary-700 font-medium text-sm transition-colors">Our Doctors</a>
-                    <a href="#services" class="nav-link text-slate-600 hover:text-primary-700 font-medium text-sm transition-colors">Services</a>
-                    <a href="#locations" class="nav-link text-slate-600 hover:text-primary-700 font-medium text-sm transition-colors">Locations</a>
-                </div>
+<!-- ═══════════════ TOP STRIP ═══════════════ -->
+<div class="topstrip">
+  <div class="wrap">
+    <div class="items">
+      <span class="item hide-sm">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        CIDCO &amp; Indranagri, Nashik
+      </span>
+      <span class="item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        9:30&nbsp;AM–2&nbsp;PM &amp; 5:30–10&nbsp;PM, all days
+      </span>
+    </div>
+    <span class="item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></svg>
+      <strong>Walk in &mdash; no appointment needed</strong>
+    </span>
+  </div>
+</div>
 
-                <!-- Hamburger -->
-                <button id="hamburger" class="md:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors" aria-label="Toggle menu">
-                    <svg class="w-5 h-5 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path id="ham-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
-            </div>
+<!-- ═══════════════ HEADER ═══════════════ -->
+<header class="nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="#top" aria-label="Suraj Clinic — home">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 21c0-6 3-10 8-11-1 6-3.5 9-8 11Z"/>
+          <path d="M12 21c0-6-3-10-8-11 1 6 3.5 9 8 11Z"/>
+          <path d="M12 21v-6"/>
+        </svg>
+      </span>
+      <span>
+        <span class="name">Suraj Clinic</span>
+        <span class="sub">Family Healthcare · Nashik</span>
+      </span>
+    </a>
 
-            <!-- Mobile Menu -->
-            <div id="mobile-menu">
-                <div class="py-4 space-y-1 border-t border-slate-100">
-                    <a href="#home" class="block px-4 py-2.5 text-slate-700 hover:bg-primary-50 hover:text-primary-700 rounded-lg font-medium text-sm transition-colors mobile-link">Home</a>
-                    <a href="#doctors" class="block px-4 py-2.5 text-slate-700 hover:bg-primary-50 hover:text-primary-700 rounded-lg font-medium text-sm transition-colors mobile-link">Our Doctors</a>
-                    <a href="#services" class="block px-4 py-2.5 text-slate-700 hover:bg-primary-50 hover:text-primary-700 rounded-lg font-medium text-sm transition-colors mobile-link">Services</a>
-                    <a href="#locations" class="block px-4 py-2.5 text-slate-700 hover:bg-primary-50 hover:text-primary-700 rounded-lg font-medium text-sm transition-colors mobile-link">Locations</a>
-                </div>
-            </div>
-        </nav>
-    </header>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#approach">Approach</a>
+      <a href="#doctors">Doctors</a>
+      <a href="#services">Services</a>
+      <a href="#locations">Locations</a>
+      <a href="#faq">FAQ</a>
+    </nav>
 
-    <main>
+    <div class="nav-actions">
+      <span class="status desk" id="navStatus" role="status">
+        <span class="dot" aria-hidden="true"></span>
+        <span class="txt">Checking hours…</span>
+      </span>
+      <button class="icon-btn theme-toggle" id="themeBtn" aria-label="Switch colour theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+      <a class="btn btn-primary btn-sm desk" href="#locations">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        Find a clinic
+      </a>
+      <button class="icon-btn" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
 
-        <!-- ===== HERO SECTION ===== -->
-        <section id="home" class="hero-gradient relative overflow-hidden min-h-[92vh] flex items-center">
-            <!-- Background pattern -->
-            <div class="absolute inset-0 opacity-5">
-                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <pattern id="cross" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-                            <path d="M15 0v40M25 0v40M0 15h40M0 25h40" stroke="white" stroke-width="1"/>
-                        </pattern>
-                    </defs>
-                    <rect width="100%" height="100%" fill="url(#cross)"/>
-                </svg>
-            </div>
+<!-- mobile drawer -->
+<div id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="d-top">
+    <span class="logo">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c0-6 3-10 8-11-1 6-3.5 9-8 11Z"/><path d="M12 21c0-6-3-10-8-11 1 6 3.5 9 8 11Z"/><path d="M12 21v-6"/></svg>
+      </span>
+      <span><span class="name">Suraj Clinic</span></span>
+    </span>
+    <button class="icon-btn" id="closeDrawer" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <nav aria-label="Mobile">
+    <a href="#approach">Approach <span>01</span></a>
+    <a href="#doctors">Doctors <span>02</span></a>
+    <a href="#services">Services <span>03</span></a>
+    <a href="#locations">Locations <span>04</span></a>
+    <a href="#faq">FAQ <span>05</span></a>
+  </nav>
+  <div class="d-foot">
+    <span class="status" id="drawerStatus"><span class="dot" aria-hidden="true"></span><span class="txt">Checking hours…</span></span>
+    <a class="btn btn-primary" href="#locations">Find your nearest clinic</a>
+    <a class="btn btn-ghost" href="#services">What we treat</a>
+  </div>
+</div>
 
-            <div class="container mx-auto px-6 relative z-10">
-                <div class="grid lg:grid-cols-2 gap-12 items-center py-16">
-                    <!-- Text Content -->
-                    <div>
-                        <div data-aos="fade-right" class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm text-white/90 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-white/20">
-                            <span class="w-2 h-2 bg-teal-400 rounded-full animate-pulse"></span>
-                            Trusted Healthcare in Nashik Since Years
-                        </div>
-                        <h1 data-aos="fade-right" data-aos-delay="100" class="text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white leading-tight">
-                            Your Family's Health,<br>
-                            <span class="text-teal-300">Our Priority.</span>
-                        </h1>
-                        <p data-aos="fade-right" data-aos-delay="200" class="mt-6 text-lg text-blue-100 leading-relaxed max-w-xl">
-                            Suraj Clinic offers compassionate and comprehensive healthcare for all ages, grounded in decades of experience and an unwavering commitment to your well-being.
-                        </p>
+<main id="main">
+<span id="top"></span>
 
-                        <div data-aos="fade-right" data-aos-delay="300" class="mt-8 flex flex-wrap gap-4">
-                            <a href="#doctors" class="bg-white text-primary-800 hover:bg-blue-50 px-7 py-3.5 rounded-xl font-bold text-sm shadow-lg transition-all hover:shadow-xl hover:-translate-y-0.5">
-                                Meet Our Doctors
-                            </a>
-                            <a href="#services" class="border-2 border-white/40 text-white hover:bg-white/10 px-7 py-3.5 rounded-xl font-semibold text-sm transition-all backdrop-blur-sm">
-                                Our Services
-                            </a>
-                        </div>
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="status is-open" id="heroStatus" role="status">
+          <span class="dot" aria-hidden="true"></span>
+          <span class="txt">Checking hours…</span>
+        </span>
 
-                        <!-- Quick info pills -->
-                        <div data-aos="fade-right" data-aos-delay="400" class="mt-10 flex flex-wrap gap-4">
-                            <div class="flex items-center gap-2 text-white/80 text-sm">
-                                <svg class="w-4 h-4 text-teal-300 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                                BAMS &amp; DHMS Qualified
-                            </div>
-                            <div class="flex items-center gap-2 text-white/80 text-sm">
-                                <svg class="w-4 h-4 text-teal-300 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                                2 Convenient Locations
-                            </div>
-                            <div class="flex items-center gap-2 text-white/80 text-sm">
-                                <svg class="w-4 h-4 text-teal-300 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                                Morning &amp; Evening Hours
-                            </div>
-                        </div>
-                    </div>
+        <h1>
+          Care that knows
+          <span class="line2">your whole family.</span>
+        </h1>
 
-                    <!-- Hero Image -->
-                    <div data-aos="fade-left" data-aos-delay="200" class="hidden lg:block">
-                        <div class="relative">
-                            <div class="absolute -inset-4 bg-white/10 rounded-3xl blur-xl"></div>
-                            <img
-                                src="images/doctor-treating-patients.jpg"
-                                alt="Doctor treating patients at Suraj Clinic"
-                                class="relative rounded-2xl shadow-2xl w-full object-cover max-h-[520px]"
-                                style="object-position: center top;"
-                            >
-                            <!-- Floating badge -->
-                            <div class="absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-xl p-4 flex items-center gap-3">
-                                <div class="bg-teal-100 rounded-xl p-2.5">
-                                    <svg class="w-6 h-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-                                </div>
-                                <div>
-                                    <p class="text-xs text-slate-500 font-medium">Patient Satisfaction</p>
-                                    <p class="text-lg font-bold text-slate-800 leading-none">98%</p>
-                                </div>
-                            </div>
-                            <!-- Floating badge 2 -->
-                            <div class="absolute -top-5 -right-5 bg-white rounded-2xl shadow-xl p-4">
-                                <div class="text-center">
-                                    <p class="text-2xl font-extrabold text-primary-800">2</p>
-                                    <p class="text-xs text-slate-500 font-medium leading-tight">Clinic<br>Locations</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <p class="lede">
+          Two doctors, three systems of medicine, one unhurried conversation at a time.
+          Suraj Clinic has looked after families across Nashik with Ayurveda, homeopathy
+          and everyday general practice — no appointment needed.
+        </p>
 
-            <!-- Wave divider -->
-            <div class="absolute bottom-0 left-0 right-0">
-                <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" class="w-full h-12 md:h-16">
-                    <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="white"/>
-                </svg>
-            </div>
-        </section>
-
-        <!-- ===== STATS STRIP ===== -->
-        <section class="bg-white py-12 border-b border-slate-100">
-            <div class="container mx-auto px-6">
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div data-aos="fade-up" data-aos-delay="100" class="stat-card bg-slate-50 rounded-xl p-5 pl-6">
-                        <p class="text-3xl font-extrabold text-primary-800">2</p>
-                        <p class="text-sm text-slate-500 font-medium mt-1">Clinic Locations</p>
-                    </div>
-                    <div data-aos="fade-up" data-aos-delay="150" class="stat-card bg-slate-50 rounded-xl p-5 pl-6" style="border-color: #0d9488">
-                        <p class="text-3xl font-extrabold text-teal-700">2</p>
-                        <p class="text-sm text-slate-500 font-medium mt-1">Expert Doctors</p>
-                    </div>
-                    <div data-aos="fade-up" data-aos-delay="200" class="stat-card bg-slate-50 rounded-xl p-5 pl-6">
-                        <p class="text-3xl font-extrabold text-primary-800">6+</p>
-                        <p class="text-sm text-slate-500 font-medium mt-1">Hours Daily</p>
-                    </div>
-                    <div data-aos="fade-up" data-aos-delay="250" class="stat-card bg-slate-50 rounded-xl p-5 pl-6" style="border-color: #0d9488">
-                        <p class="text-3xl font-extrabold text-teal-700">All</p>
-                        <p class="text-sm text-slate-500 font-medium mt-1">Ages Treated</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== DOCTORS SECTION ===== -->
-        <section id="doctors" class="py-24 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <span class="inline-block bg-primary-50 text-primary-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-4">Our Medical Team</span>
-                    <h2 class="text-3xl lg:text-4xl font-extrabold text-slate-900">Meet Our Experienced Doctors</h2>
-                    <p class="text-slate-500 mt-4 max-w-2xl mx-auto text-base leading-relaxed">
-                        Dedicated professionals with a shared passion for providing exceptional, personalised patient care.
-                    </p>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <!-- Dr. Narendra -->
-                    <div data-aos="fade-up" data-aos-delay="100" class="card-hover bg-white rounded-2xl shadow-md border border-slate-100 overflow-hidden group">
-                        <div class="bg-gradient-to-br from-primary-50 to-primary-100 px-8 pt-8 pb-0 flex justify-center">
-                            <img
-                                class="w-36 h-36 rounded-full object-cover ring-4 ring-white shadow-lg"
-                                src="images/dr-narendra.jpg"
-                                alt="Photo of Dr. Narendra Patil"
-                            >
-                        </div>
-                        <div class="p-8 text-center">
-                            <span class="badge-bams inline-block px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase mb-3">B.A.M.S</span>
-                            <h3 class="text-2xl font-bold text-slate-900">Dr. Narendra Patil</h3>
-                            <div class="w-12 h-1 bg-primary-600 rounded mx-auto mt-3 mb-4"></div>
-                            <p class="text-slate-500 text-sm leading-relaxed">
-                                With a deep understanding of traditional Ayurvedic and modern medicine, Dr. Narendra Patil provides holistic, patient-centred care for the entire family.
-                            </p>
-                            <div class="mt-6 flex justify-center gap-4 text-xs text-slate-500">
-                                <div class="flex items-center gap-1.5">
-                                    <svg class="w-3.5 h-3.5 text-primary-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                                    Ayurvedic Medicine
-                                </div>
-                                <div class="flex items-center gap-1.5">
-                                    <svg class="w-3.5 h-3.5 text-primary-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                                    Family Care
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Dr. Rajashri -->
-                    <div data-aos="fade-up" data-aos-delay="200" class="card-hover bg-white rounded-2xl shadow-md border border-slate-100 overflow-hidden group">
-                        <div class="bg-gradient-to-br from-teal-50 to-teal-100 px-8 pt-8 pb-0 flex justify-center">
-                            <img
-                                class="w-36 h-36 rounded-full object-cover ring-4 ring-white shadow-lg"
-                                src="images/dr-rajashri.jpg"
-                                alt="Photo of Dr. Rajashri Patil"
-                            >
-                        </div>
-                        <div class="p-8 text-center">
-                            <span class="badge-dhms inline-block px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase mb-3">D.H.M.S</span>
-                            <h3 class="text-2xl font-bold text-slate-900">Dr. Rajashri Patil</h3>
-                            <div class="w-12 h-1 bg-teal-600 rounded mx-auto mt-3 mb-4"></div>
-                            <p class="text-slate-500 text-sm leading-relaxed">
-                                Dr. Rajashri Patil specialises in homeopathic solutions, offering gentle and effective treatments for a wide variety of conditions across all age groups.
-                            </p>
-                            <div class="mt-6 flex justify-center gap-4 text-xs text-slate-500">
-                                <div class="flex items-center gap-1.5">
-                                    <svg class="w-3.5 h-3.5 text-teal-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                                    Homeopathy
-                                </div>
-                                <div class="flex items-center gap-1.5">
-                                    <svg class="w-3.5 h-3.5 text-teal-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                                    Holistic Health
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== SERVICES SECTION ===== -->
-        <section id="services" class="py-24 bg-slate-50">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <span class="inline-block bg-teal-50 text-teal-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-4">What We Offer</span>
-                    <h2 class="text-3xl lg:text-4xl font-extrabold text-slate-900">Our Core Services</h2>
-                    <p class="text-slate-500 mt-4 max-w-2xl mx-auto text-base">Comprehensive primary care services designed to support your entire family's health journey.</p>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-6">
-                    <!-- Service 1 -->
-                    <div data-aos="fade-up" data-aos-delay="100" class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 card-hover group">
-                        <div class="service-icon-wrap bg-primary-50 text-primary-600 rounded-2xl h-14 w-14 flex items-center justify-center mb-6">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-3">General Consultations</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed">Expert diagnosis and treatment for common illnesses, fevers, infections, and general health concerns for all family members.</p>
-                        <div class="mt-6 pt-5 border-t border-slate-100">
-                            <span class="text-primary-600 text-sm font-semibold group-hover:underline">Available Daily →</span>
-                        </div>
-                    </div>
-
-                    <!-- Service 2 -->
-                    <div data-aos="fade-up" data-aos-delay="200" class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 card-hover group">
-                        <div class="service-icon-wrap bg-teal-50 text-teal-600 rounded-2xl h-14 w-14 flex items-center justify-center mb-6">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-3">Preventive Care</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed">Routine health check-ups, vaccinations, and personalised lifestyle counseling to keep you and your family healthy.</p>
-                        <div class="mt-6 pt-5 border-t border-slate-100">
-                            <span class="text-teal-600 text-sm font-semibold group-hover:underline">Learn More →</span>
-                        </div>
-                    </div>
-
-                    <!-- Service 3 -->
-                    <div data-aos="fade-up" data-aos-delay="300" class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 card-hover group">
-                        <div class="service-icon-wrap bg-primary-50 text-primary-600 rounded-2xl h-14 w-14 flex items-center justify-center mb-6">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-3">Chronic Disease Management</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed">Ongoing, structured care for conditions like diabetes, hypertension, asthma, and other long-term health concerns.</p>
-                        <div class="mt-6 pt-5 border-t border-slate-100">
-                            <span class="text-primary-600 text-sm font-semibold group-hover:underline">Learn More →</span>
-                        </div>
-                    </div>
-
-                    <!-- Service 4 -->
-                    <div data-aos="fade-up" data-aos-delay="150" class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 card-hover group">
-                        <div class="service-icon-wrap bg-teal-50 text-teal-600 rounded-2xl h-14 w-14 flex items-center justify-center mb-6">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-3">Ayurvedic Treatment</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed">Traditional Ayurvedic therapies and herbal remedies that work in harmony with your body for lasting wellness.</p>
-                        <div class="mt-6 pt-5 border-t border-slate-100">
-                            <span class="text-teal-600 text-sm font-semibold group-hover:underline">Learn More →</span>
-                        </div>
-                    </div>
-
-                    <!-- Service 5 -->
-                    <div data-aos="fade-up" data-aos-delay="250" class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 card-hover group">
-                        <div class="service-icon-wrap bg-primary-50 text-primary-600 rounded-2xl h-14 w-14 flex items-center justify-center mb-6">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-3">Homeopathic Solutions</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed">Gentle, side-effect-free homeopathic treatments tailored to your unique constitution and health needs.</p>
-                        <div class="mt-6 pt-5 border-t border-slate-100">
-                            <span class="text-primary-600 text-sm font-semibold group-hover:underline">Learn More →</span>
-                        </div>
-                    </div>
-
-                    <!-- Service 6 -->
-                    <div data-aos="fade-up" data-aos-delay="350" class="service-card bg-white p-8 rounded-2xl shadow-sm border border-slate-100 card-hover group">
-                        <div class="service-icon-wrap bg-teal-50 text-teal-600 rounded-2xl h-14 w-14 flex items-center justify-center mb-6">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-3">Paediatric Care</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed">Dedicated healthcare for children — from newborns through adolescence — with a gentle, reassuring approach.</p>
-                        <div class="mt-6 pt-5 border-t border-slate-100">
-                            <span class="text-teal-600 text-sm font-semibold group-hover:underline">Learn More →</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ===== LOCATIONS SECTION ===== -->
-        <section id="locations" class="py-24 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16" data-aos="fade-up">
-                    <span class="inline-block bg-primary-50 text-primary-700 px-4 py-1.5 rounded-full text-sm font-semibold mb-4">Find Us</span>
-                    <h2 class="text-3xl lg:text-4xl font-extrabold text-slate-900">Visit Us at Our Clinics</h2>
-                    <p class="text-slate-500 mt-4 max-w-2xl mx-auto text-base">Two convenient locations in Nashik to serve you and your family better.</p>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                    <!-- Clinic 1 -->
-                    <div data-aos="fade-up" data-aos-delay="100" class="card-hover bg-white rounded-2xl shadow-md border border-slate-100 overflow-hidden">
-                        <div class="bg-gradient-to-r from-primary-700 to-primary-800 p-6 text-white">
-                            <div class="flex items-center gap-3 mb-1">
-                                <div class="bg-white/20 rounded-lg p-2">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                                </div>
-                                <span class="text-white/80 text-sm font-medium uppercase tracking-wide">Clinic 1</span>
-                            </div>
-                            <h3 class="text-xl font-bold">Shivtirth Colony</h3>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex gap-3 mb-5">
-                                <svg class="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                                <p class="text-slate-600 text-sm leading-relaxed">
-                                    8, Krushna Leela Appartments, Near Uma Hospital,<br>
-                                    Shivtirth Colony, Kamatwada Road,<br>
-                                    CIDCO, Nashik – 422009
-                                </p>
-                            </div>
-                            <div class="bg-slate-50 rounded-xl p-4">
-                                <div class="flex items-center gap-3">
-                                    <svg class="w-5 h-5 text-primary-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                                    <div>
-                                        <p class="text-xs text-slate-500 font-medium uppercase tracking-wide mb-1">Clinic Hours</p>
-                                        <p class="text-slate-800 font-semibold text-sm">9:30 AM – 2:00 PM</p>
-                                        <p class="text-slate-800 font-semibold text-sm">5:30 PM – 10:00 PM</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Clinic 2 -->
-                    <div data-aos="fade-up" data-aos-delay="200" class="card-hover bg-white rounded-2xl shadow-md border border-slate-100 overflow-hidden">
-                        <div class="bg-gradient-to-r from-teal-600 to-teal-700 p-6 text-white">
-                            <div class="flex items-center gap-3 mb-1">
-                                <div class="bg-white/20 rounded-lg p-2">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                                </div>
-                                <span class="text-white/80 text-sm font-medium uppercase tracking-wide">Clinic 2</span>
-                            </div>
-                            <h3 class="text-xl font-bold">Indranagri</h3>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex gap-3 mb-5">
-                                <svg class="w-5 h-5 text-slate-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                                <p class="text-slate-600 text-sm leading-relaxed">
-                                    Aditya Bunglow, Indranagri,<br>
-                                    Kamatwade Road,<br>
-                                    Nashik – 422008
-                                </p>
-                            </div>
-                            <div class="bg-slate-50 rounded-xl p-4">
-                                <div class="flex items-center gap-3">
-                                    <svg class="w-5 h-5 text-teal-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                                    <div>
-                                        <p class="text-xs text-slate-500 font-medium uppercase tracking-wide mb-1">Clinic Hours</p>
-                                        <p class="text-slate-800 font-semibold text-sm">9:30 AM – 2:00 PM</p>
-                                        <p class="text-slate-800 font-semibold text-sm">5:30 PM – 10:00 PM</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- ===== FOOTER ===== -->
-    <footer class="bg-slate-900 text-white">
-        <div class="container mx-auto px-6 py-12">
-            <div class="grid md:grid-cols-3 gap-10 pb-10 border-b border-slate-800">
-                <!-- Brand -->
-                <div>
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="bg-primary-700 text-white rounded-lg w-9 h-9 flex items-center justify-center font-bold text-sm">SC</div>
-                        <div>
-                            <span class="text-lg font-bold text-white leading-none">Suraj Clinic</span>
-                            <p class="text-[10px] text-slate-400 font-medium tracking-wide uppercase leading-none mt-0.5">Family Healthcare</p>
-                        </div>
-                    </div>
-                    <p class="text-slate-400 text-sm leading-relaxed">
-                        Providing compassionate and comprehensive healthcare for all ages in Nashik. Your family's health is our highest priority.
-                    </p>
-                </div>
-
-                <!-- Quick Links -->
-                <div>
-                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wide">Quick Links</h4>
-                    <ul class="space-y-2.5">
-                        <li><a href="#home" class="text-slate-400 hover:text-white text-sm transition-colors">Home</a></li>
-                        <li><a href="#doctors" class="text-slate-400 hover:text-white text-sm transition-colors">Our Doctors</a></li>
-                        <li><a href="#services" class="text-slate-400 hover:text-white text-sm transition-colors">Services</a></li>
-                        <li><a href="#locations" class="text-slate-400 hover:text-white text-sm transition-colors">Locations</a></li>
-                    </ul>
-                </div>
-
-                <!-- Hours -->
-                <div>
-                    <h4 class="font-bold text-white mb-4 text-sm uppercase tracking-wide">Clinic Hours</h4>
-                    <div class="space-y-2">
-                        <div class="flex items-center gap-2 text-sm">
-                            <svg class="w-4 h-4 text-teal-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            <span class="text-slate-400">Morning: <span class="text-slate-200">9:30 AM – 2:00 PM</span></span>
-                        </div>
-                        <div class="flex items-center gap-2 text-sm">
-                            <svg class="w-4 h-4 text-teal-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                            <span class="text-slate-400">Evening: <span class="text-slate-200">5:30 PM – 10:00 PM</span></span>
-                        </div>
-                    </div>
-                    <div class="mt-5 bg-slate-800 rounded-xl p-4 text-xs text-slate-400 leading-relaxed">
-                        Both clinics follow the same schedule. Walk-ins welcome.
-                    </div>
-                </div>
-            </div>
-
-            <div class="pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
-                <p class="text-slate-500 text-sm">© <span id="year"></span> Suraj Clinic, Nashik. All Rights Reserved.</p>
-                <p class="text-slate-600 text-xs">Designed with care for better healthcare access.</p>
-            </div>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#locations">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            Find your nearest clinic
+          </a>
+          <a class="btn btn-ghost" href="#services">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-6 4 12 2.5-6h5"/></svg>
+            What we treat
+          </a>
         </div>
-    </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 700, once: true, offset: 60 });
+        <div class="hero-meta">
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></svg>
+            B.A.M.S &amp; D.H.M.S qualified
+          </span>
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></svg>
+            Walk-ins welcome
+          </span>
+          <span class="chip">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></svg>
+            Newborns to grandparents
+          </span>
+        </div>
+      </div>
 
-        document.getElementById('year').textContent = new Date().getFullYear();
+      <div class="hero-art">
+        <span class="ring" aria-hidden="true"></span>
+        <div class="frame">
+          <picture>
+            <source type="image/webp" srcset="images/opt/hero-640.webp 640w, images/opt/hero-1000.webp 1000w, images/opt/hero-1600.webp 1600w" sizes="(max-width:960px) 92vw, 46vw">
+            <img src="images/opt/hero-1000.jpg"
+                 srcset="images/opt/hero-640.jpg 640w, images/opt/hero-1000.jpg 1000w, images/opt/hero-1600.jpg 1600w"
+                 sizes="(max-width:960px) 92vw, 46vw"
+                 width="1000" height="545" fetchpriority="high" decoding="async"
+                 alt="A doctor at Suraj Clinic examining a patient in the consulting room">
+          </picture>
+        </div>
+        <div class="float-card fc-1">
+          <span class="ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2.5-3.4 2.5-5.4A5.6 5.6 0 0 0 12 5.1 5.6 5.6 0 0 0 2.5 8.6c0 2 1 3.9 2.5 5.4l7 7 7-7Z"/></svg>
+          </span>
+          <span>
+            <span class="k">6½ hrs</span>
+            <span class="l">Open every day</span>
+          </span>
+        </div>
+        <div class="float-card fc-2">
+          <span class="k">02</span>
+          <span class="l">Clinics in<br>Nashik</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Mobile menu toggle
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
+<!-- ═══════════════ TRUST MARQUEE ═══════════════ -->
+<div class="strip" aria-hidden="true">
+  <div class="track" id="marquee">
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></svg>Ayurvedic medicine</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></svg>Homeopathy</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></svg>General consultation</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></svg>Paediatric care</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></svg>Diabetes &amp; blood pressure</span>
+    <span class="item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"/></svg>Preventive check-ups</span>
+  </div>
+</div>
 
-        hamburger.addEventListener('click', () => {
-            mobileMenu.classList.toggle('open');
-        });
+<!-- ═══════════════ APPROACH ═══════════════ -->
+<section class="section-pad" id="approach">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Our approach</span>
+      <h2>Three systems of medicine, <span class="serif-em">under one roof.</span></h2>
+      <p class="lede">
+        Most families don't arrive knowing whether they need a herbal remedy, a homeopathic
+        one, or a straight course of treatment. That's our job. We start with the complaint,
+        not the category.
+      </p>
+    </div>
 
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-            });
-        });
-    </script>
+    <div class="systems">
+      <article class="system reveal">
+        <span class="num" aria-hidden="true">01</span>
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c0-7 3.5-11.5 9-12.5C20 17 16 21 12 22Z"/><path d="M12 22c0-7-3.5-11.5-9-12.5C4 17 8 21 12 22Z"/><path d="M12 22v-7"/></svg>
+        </span>
+        <h3>Ayurveda</h3>
+        <p>Classical formulations and diet-first plans from Dr. Narendra Patil, B.A.M.S. Best suited to digestive complaints, joint pain, skin conditions and long-term constitutional care.</p>
+        <div class="tags"><span class="tag">Digestion</span><span class="tag">Joints</span><span class="tag">Skin</span><span class="tag">Panchakarma advice</span></div>
+      </article>
+
+      <article class="system reveal">
+        <span class="num" aria-hidden="true">02</span>
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v4l4.5 8.2A3.5 3.5 0 0 1 16.4 21H7.6a3.5 3.5 0 0 1-3.1-5.8L9 7Z"/><path d="M7 15h10"/></svg>
+        </span>
+        <h3>Homeopathy</h3>
+        <p>Gentle, individually-matched remedies from Dr. Rajashri Patil, D.H.M.S. Particularly good for children, recurring allergies, and anyone who reacts badly to stronger medication.</p>
+        <div class="tags"><span class="tag">Children</span><span class="tag">Allergies</span><span class="tag">Recurrent colds</span><span class="tag">Chronic care</span></div>
+      </article>
+
+      <article class="system reveal">
+        <span class="num" aria-hidden="true">03</span>
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2.5-6 4 12 2.5-6h5"/></svg>
+        </span>
+        <h3>Everyday general practice</h3>
+        <p>Fever, infection, injury, blood-pressure and sugar monitoring — the ordinary things a family needs seen to quickly. Referrals arranged when something needs a specialist.</p>
+        <div class="tags"><span class="tag">Fever</span><span class="tag">Infections</span><span class="tag">BP &amp; sugar</span><span class="tag">Referrals</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ DOCTORS ═══════════════ -->
+<section class="section-pad doctors" id="doctors">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">The doctors</span>
+      <h2>Two practitioners, <span class="serif-em">one practice.</span></h2>
+      <p class="lede">
+        A husband-and-wife practice where the same two people see you every visit — so
+        nobody has to re-tell their history to a new face.
+      </p>
+    </div>
+
+    <div class="doc-grid">
+      <article class="doc reveal">
+        <div class="photo">
+          <picture>
+            <source type="image/webp" srcset="images/opt/dr-narendra-600.webp">
+            <img src="images/opt/dr-narendra-600.jpg" width="460" height="614" loading="lazy" decoding="async"
+                 alt="Portrait of Dr. Narendra Patil">
+          </picture>
+          <span class="cred">B.A.M.S</span>
+        </div>
+        <div class="body">
+          <h3>Dr. Narendra Patil</h3>
+          <p class="role">Ayurvedic &amp; general medicine</p>
+          <span class="rule" aria-hidden="true"></span>
+          <p>
+            Dr. Patil combines classical Ayurvedic diagnosis with everyday general practice,
+            which means treatment plans that fit the life a patient actually leads — the food
+            at home, the working hours, the medicines already being taken.
+          </p>
+          <div class="focus">
+            <span class="tag">Ayurvedic medicine</span>
+            <span class="tag">Family practice</span>
+            <span class="tag">Chronic conditions</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="doc reveal">
+        <div class="photo">
+          <picture>
+            <source type="image/webp" srcset="images/opt/dr-rajashri-600.webp">
+            <img src="images/opt/dr-rajashri-600.jpg" width="460" height="614" loading="lazy" decoding="async"
+                 alt="Portrait of Dr. Rajashri Patil">
+          </picture>
+          <span class="cred">D.H.M.S</span>
+        </div>
+        <div class="body">
+          <h3>Dr. Rajashri Patil</h3>
+          <p class="role">Homeopathy &amp; paediatrics</p>
+          <span class="rule" aria-hidden="true"></span>
+          <p>
+            Dr. Patil's homeopathic practice leans heavily toward children and long-running
+            complaints that haven't settled with anything else. Consultations run long on
+            purpose — the history is most of the diagnosis.
+          </p>
+          <div class="focus">
+            <span class="tag">Homeopathy</span>
+            <span class="tag">Children &amp; infants</span>
+            <span class="tag">Allergies</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ SERVICES ═══════════════ -->
+<section class="section-pad" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What we treat</span>
+      <h2>The things families <span class="serif-em">actually come in for.</span></h2>
+      <p class="lede">
+        No procedure lists or specialist jargon — just the complaints we see week in, week out.
+      </p>
+    </div>
+
+    <div class="bento">
+      <article class="svc feature reveal">
+        <div>
+          <span class="ic" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4M3.5 9.5h17"/><rect x="3.5" y="4.5" width="17" height="16" rx="3"/><path d="M12 13v4M10 15h4"/></svg>
+          </span>
+          <h3>General consultation</h3>
+          <p>
+            Fever, cough, stomach trouble, an injury that needs looking at. The everyday
+            reason most people walk in. Both morning and evening sessions run seven days a
+            week, and you do not need to book ahead.
+          </p>
+        </div>
+        <span class="note">
+          Open every day · walk in
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </article>
+
+      <article class="svc reveal">
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-8-5.2-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.8-8 11-8 11Z"/></svg>
+        </span>
+        <h3>Preventive check-ups</h3>
+        <p>Routine screening, vaccination schedules for children, and plain-language advice on diet and lifestyle before a problem takes hold.</p>
+        <span class="note">Seasonal &amp; annual <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </article>
+
+      <article class="svc reveal">
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h4l2-5 3 9 2.5-4H21"/><circle cx="12" cy="12" r="9.5"/></svg>
+        </span>
+        <h3>Diabetes &amp; blood pressure</h3>
+        <p>Structured, ongoing management with regular readings, medication review, and a record kept across visits so trends are visible.</p>
+        <span class="note">Ongoing care <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </article>
+
+      <article class="svc reveal">
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0"/><path d="M17 11.5a2.6 2.6 0 1 0 0-5.2"/><path d="M18 20a4.6 4.6 0 0 0-2.2-3.9"/></svg>
+        </span>
+        <h3>Children &amp; infants</h3>
+        <p>From newborn weight checks to the recurring winter cough. Gentle homeopathic options where a child doesn't tolerate stronger medicine.</p>
+        <span class="note">Newborn onward <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </article>
+
+      <article class="svc reveal">
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c0-7 3.5-11.5 9-12.5C20 17 16 21 12 22Z"/><path d="M12 22c0-7-3.5-11.5-9-12.5C4 17 8 21 12 22Z"/></svg>
+        </span>
+        <h3>Ayurvedic treatment</h3>
+        <p>Herbal formulations, seasonal regimens and dietary correction — prescribed alongside conventional treatment rather than instead of it.</p>
+        <span class="note">Constitutional care <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </article>
+
+      <article class="svc reveal">
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2.5h6v3.8l4.3 8.6A3.4 3.4 0 0 1 16.3 21H7.7a3.4 3.4 0 0 1-3-6.1L9 6.3Z"/><path d="M7.2 15.5h9.6"/></svg>
+        </span>
+        <h3>Homeopathic remedies</h3>
+        <p>Individually matched remedies with no interaction risk, useful for long-standing allergies, migraines and complaints that keep returning.</p>
+        <span class="note">Gentle &amp; matched <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ LOCATIONS ═══════════════ -->
+<section class="section-pad locations" id="locations">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Find us</span>
+      <h2>Two clinics, <span class="serif-em">same hours.</span></h2>
+      <p class="lede">
+        Both run the same morning and evening sessions, seven days a week. Come to whichever
+        is closer — your record is shared between them.
+      </p>
+    </div>
+
+    <div class="loc-grid">
+      <article class="loc reveal" data-clinic="CIDCO">
+        <div class="map" aria-hidden="true">
+          <svg class="grid-lines" viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor" stroke-width="1">
+            <path d="M0 40h400M0 92h400M70 0v150M170 0v150M290 0v150"/>
+            <path d="M0 118h400M230 0v150" stroke-width="2.5"/>
+          </svg>
+          <span class="pin">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+        </div>
+        <div class="body">
+          <div class="head">
+            <div>
+              <p class="label">Clinic 01 · CIDCO</p>
+              <h3>Shivtirth Colony</h3>
+            </div>
+            <span class="status loc-status"><span class="dot" aria-hidden="true"></span><span class="txt">…</span></span>
+          </div>
+          <address>
+            8, Krushna Leela Apartments, Near Uma Hospital,<br>
+            Shivtirth Colony, Kamatwada Road,<br>
+            CIDCO, Nashik – 422009
+          </address>
+          <div class="hours">
+            <div class="row">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>Morning</span>
+              <span>9:30 AM – 2:00 PM</span>
+            </div>
+            <div class="row">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>Evening</span>
+              <span>5:30 PM – 10:00 PM</span>
+            </div>
+          </div>
+          <div class="actions">
+            <a class="btn btn-primary btn-sm" target="_blank" rel="noopener"
+               href="https://www.google.com/maps/search/?api=1&amp;query=Krushna%20Leela%20Apartments%20Shivtirth%20Colony%20Kamatwada%20Road%20CIDCO%20Nashik%20422009">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-8-8 18-2-8-8-2Z"/></svg>
+              Get directions
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <article class="loc reveal" data-clinic="Indranagri">
+        <div class="map" aria-hidden="true">
+          <svg class="grid-lines" viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor" stroke-width="1">
+            <path d="M0 58h400M0 110h400M110 0v150M215 0v150M330 0v150"/>
+            <path d="M0 24h400M150 0v150" stroke-width="2.5"/>
+          </svg>
+          <span class="pin">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          </span>
+        </div>
+        <div class="body">
+          <div class="head">
+            <div>
+              <p class="label">Clinic 02 · Kamatwade</p>
+              <h3>Indranagri</h3>
+            </div>
+            <span class="status loc-status"><span class="dot" aria-hidden="true"></span><span class="txt">…</span></span>
+          </div>
+          <address>
+            Aditya Bunglow, Indranagri,<br>
+            Kamatwade Road,<br>
+            Nashik – 422008
+          </address>
+          <div class="hours">
+            <div class="row">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>Morning</span>
+              <span>9:30 AM – 2:00 PM</span>
+            </div>
+            <div class="row">
+              <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>Evening</span>
+              <span>5:30 PM – 10:00 PM</span>
+            </div>
+          </div>
+          <div class="actions">
+            <a class="btn btn-clay btn-sm" target="_blank" rel="noopener"
+               href="https://www.google.com/maps/search/?api=1&amp;query=Aditya%20Bunglow%20Indranagri%20Kamatwade%20Road%20Nashik%20422008">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-8-8 18-2-8-8-2Z"/></svg>
+              Get directions
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FAQ ═══════════════ -->
+<section class="section-pad" id="faq">
+  <div class="wrap">
+    <div class="faq-layout">
+      <div class="section-head reveal" style="margin-bottom:0">
+        <span class="eyebrow">Before you visit</span>
+        <h2>Common <span class="serif-em">questions.</span></h2>
+        <p class="lede">Anything else, ask at the clinic when you come in — both doctors are happy to talk it through.</p>
+        <a class="btn btn-primary" style="margin-top:26px" href="#locations">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          Find your nearest clinic
+        </a>
+      </div>
+
+      <div class="faq reveal">
+        <details open>
+          <summary>Do I need an appointment?
+            <span class="pm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </summary>
+          <div class="answer">No. Both clinics run on a walk-in basis during morning and evening sessions.</div>
+        </details>
+        <details>
+          <summary>Which doctor should I see?
+            <span class="pm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </summary>
+          <div class="answer">Come in and describe the complaint — we'll point you to the right one. As a rough guide: children and long-standing allergies tend to go to Dr. Rajashri Patil, while digestive, joint and chronic conditions usually go to Dr. Narendra Patil.</div>
+        </details>
+        <details>
+          <summary>Are the two clinics open at the same times?
+            <span class="pm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </summary>
+          <div class="answer">Yes — both run 9:30 AM to 2:00 PM and 5:30 PM to 10:00 PM, every day. Go to whichever is closer to you.</div>
+        </details>
+        <details>
+          <summary>Can Ayurvedic or homeopathic treatment run alongside my existing medicines?
+            <span class="pm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </summary>
+          <div class="answer">In most cases, yes — but bring your current prescriptions with you so they can be checked first. Never stop a prescribed medicine without discussing it at the visit.</div>
+        </details>
+        <details>
+          <summary>Do you treat children and infants?
+            <span class="pm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </summary>
+          <div class="answer">Yes, from newborns upward — routine weight and growth checks, vaccination guidance, and treatment for the usual childhood illnesses.</div>
+        </details>
+        <details>
+          <summary>What should I bring to a first visit?
+            <span class="pm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span>
+          </summary>
+          <div class="answer">Any previous prescriptions, recent test reports, and a list of medicines you're currently taking. For children, the immunisation card if you have it.</div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CTA ═══════════════ -->
+<section class="section-pad">
+  <div class="wrap">
+    <div class="cta reveal">
+      <h2>Not feeling right? Just walk in.</h2>
+      <p>No appointment, no forms to fill in first. Both clinics are open twice a day, seven days a week — come to whichever is closer.</p>
+      <span class="status onDark" id="ctaStatus" role="status"><span class="dot" aria-hidden="true"></span><span class="txt">Checking hours…</span></span>
+      <div class="row">
+        <a class="btn btn-onDark" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Krushna%20Leela%20Apartments%20Shivtirth%20Colony%20Kamatwada%20Road%20CIDCO%20Nashik%20422009">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-8-8 18-2-8-8-2Z"/></svg>
+          Directions to Shivtirth Colony
+        </a>
+        <a class="btn btn-onDark" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Aditya%20Bunglow%20Indranagri%20Kamatwade%20Road%20Nashik%20422008">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-8-8 18-2-8-8-2Z"/></svg>
+          Directions to Indranagri
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-about">
+        <span class="logo">
+          <span class="mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c0-6 3-10 8-11-1 6-3.5 9-8 11Z"/><path d="M12 21c0-6-3-10-8-11 1 6 3.5 9 8 11Z"/><path d="M12 21v-6"/></svg>
+          </span>
+          <span><span class="name">Suraj Clinic</span><span class="sub">Family Healthcare</span></span>
+        </span>
+        <p>Ayurveda, homeopathy and everyday general practice for families across Nashik. Two clinics, the same two doctors, open every day.</p>
+      </div>
+
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#approach">Our approach</a></li>
+          <li><a href="#doctors">The doctors</a></li>
+          <li><a href="#services">What we treat</a></li>
+          <li><a href="#locations">Locations</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Hours</h4>
+        <ul>
+          <li>Morning · 9:30 AM – 2:00 PM</li>
+          <li>Evening · 5:30 PM – 10:00 PM</li>
+          <li class="muted" style="font-size:.84rem">Seven days a week, both clinics</li>
+        </ul>
+        <div class="f-note">Walk-ins welcome throughout opening hours.</div>
+      </div>
+
+      <div>
+        <h4>Contact</h4>
+        <div class="f-contact">
+          <span class="row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            Shivtirth Colony, CIDCO,<br>Nashik – 422009
+          </span>
+          <span class="row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            Indranagri, Kamatwade Road,<br>Nashik – 422008
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="f-bottom">
+      <span>© <span id="year">2026</span> Suraj Clinic, Nashik. All rights reserved.</span>
+      <span>Information on this site is general and not a substitute for a consultation.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════ MOBILE ACTION BAR ═══════════════ -->
+<div class="actionbar" id="actionbar">
+  <div class="row">
+    <a class="primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Krushna%20Leela%20Apartments%20Shivtirth%20Colony%20Kamatwada%20Road%20CIDCO%20Nashik%20422009">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-8-8 18-2-8-8-2Z"/></svg>
+      Shivtirth Colony
+    </a>
+    <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Aditya%20Bunglow%20Indranagri%20Kamatwade%20Road%20Nashik%20422008">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-8-8 18-2-8-8-2Z"/></svg>
+      Indranagri
+    </a>
+  </div>
+</div>
+
+<script src="assets/site.js" defer></script>
 </body>
 </html>
