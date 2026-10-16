@@ -218,7 +218,7 @@ h3{ font-size:1.5rem; line-height:1.2; font-weight:500 }
 .tint-mint .chips li{ background:var(--canvas) }
 
 /* ---------- approach ---------- */
-.systems{ display:grid; grid-template-columns:repeat(3, 1fr); gap:22px }
+.systems{ display:grid; grid-template-columns:repeat(2, 1fr); gap:22px }
 .system-icon{
   width:60px; height:60px; border-radius:50%; background:var(--accent-soft);
   display:grid; place-items:center; margin-bottom:26px;
@@ -239,6 +239,8 @@ h3{ font-size:1.5rem; line-height:1.2; font-weight:500 }
 /* ---------- services ---------- */
 .services{ display:grid; grid-template-columns:repeat(3, 1fr); gap:20px }
 .service{ display:flex; flex-direction:column; border-color:transparent }
+/* five cards: the first spans two columns so both rows fill */
+.service-wide{ grid-column:span 2 }
 .service-icon{ width:36px; height:36px; fill:none; stroke:var(--primary); stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round }
 .service h3{ margin:22px 0 10px; font-size:1.38rem }
 .service p{ color:var(--ink-2) }
@@ -368,6 +370,7 @@ html[lang="mr"] .label, html[lang="mr"] .site-footer h4, html[lang="mr"] .servic
   .header-row{ height:68px }
   .trust-row{ display:grid; grid-template-columns:1fr 1fr; gap:18px }
   .doctors, .services, .clinics{ grid-template-columns:1fr }
+  .service-wide{ grid-column:auto }
   .card{ padding:28px 24px }
   .faq details p{ padding-right:0 }
 }

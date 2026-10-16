@@ -15,7 +15,7 @@
 
   var SESSIONS = [
     [9 * 60 + 30, 14 * 60],       //  9:30 AM – 2:00 PM
-    [17 * 60 + 30, 22 * 60]       //  5:30 PM – 10:00 PM
+    [17 * 60 + 30, 21 * 60 + 30]  //  5:30 PM – 9:30 PM
   ];
 
   var i18n = window.scI18n || { lang: function () { return "en"; }, digits: String };
