@@ -1,23 +1,41 @@
 /* ============================================================
    Suraj Clinic — interactions
-   No dependencies. Replaces the AOS library with a ~20-line
-   IntersectionObserver, and adds live clinic-hours status.
+   No dependencies. Live clinic-hours status, theme toggle,
+   mobile menu, one-open-at-a-time FAQ. Text translation lives
+   in i18n.js.
    ============================================================ */
 (function () {
   "use strict";
 
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
   /* ---------- 1. live clinic status -------------------------
-     Hours are the single source of truth for every status pill
+     Hours are the single source of truth for every status line
      on the page. Times are minutes from midnight, evaluated in
-     Asia/Kolkata so the badge is correct for a visitor in any
+     Asia/Kolkata so the status is correct for a visitor in any
      timezone (e.g. relatives abroad checking the clinic hours). */
 
   var SESSIONS = [
     [9 * 60 + 30, 14 * 60],       //  9:30 AM – 2:00 PM
     [17 * 60 + 30, 22 * 60]       //  5:30 PM – 10:00 PM
   ];
+
+  var i18n = window.scI18n || { lang: function () { return "en"; }, digits: String };
+
+  var TEXT = {
+    en: {
+      closing: function (n) { return "Closing in " + n + " min"; },
+      openUntil: function (t) { return "Open now · until " + t; },
+      opensIn: function (n) { return "Opens in " + n + " min"; },
+      opensAt: function (t) { return "Closed · opens " + t; },
+      tomorrow: function (t) { return "Closed · opens " + t + " tomorrow"; }
+    },
+    mr: {
+      closing: function (n) { return n + " मिनिटांत बंद होईल"; },
+      openUntil: function (t) { return "आता सुरू · " + t + " पर्यंत"; },
+      opensIn: function (n) { return n + " मिनिटांत सुरू होईल"; },
+      opensAt: function (t) { return "बंद · " + t + " वाजता सुरू होईल"; },
+      tomorrow: function (t) { return "बंद · उद्या " + t + " वाजता सुरू होईल"; }
+    }
+  };
 
   function clinicNow() {
     var parts = new Intl.DateTimeFormat("en-GB", {
@@ -35,162 +53,67 @@
     return (h % 24) * 60 + m;
   }
 
-  function fmt(mins) {
+  function fmt(mins, lang) {
     var h = Math.floor(mins / 60) % 24;
     var m = mins % 60;
-    var ampm = h < 12 ? "AM" : "PM";
     var h12 = h % 12 === 0 ? 12 : h % 12;
-    return h12 + (m ? ":" + (m < 10 ? "0" + m : m) : "") + " " + ampm;
+    var clock = h12 + (m ? ":" + (m < 10 ? "0" + m : m) : "");
+
+    if (lang === "mr") {
+      // Marathi names the part of the day instead of AM/PM
+      var part = h < 12 ? "सकाळी" : h < 16 ? "दुपारी" : h < 20 ? "संध्याकाळी" : "रात्री";
+      return part + " " + i18n.digits(clock);
+    }
+    return clock + " " + (h < 12 ? "AM" : "PM");
   }
 
   function clinicStatus() {
     var now = clinicNow();
+    var lang = i18n.lang();
+    var T = TEXT[lang] || TEXT.en;
+    var n = function (x) { return lang === "mr" ? i18n.digits(x) : x; };
 
     for (var i = 0; i < SESSIONS.length; i++) {
       var open = SESSIONS[i][0], close = SESSIONS[i][1];
 
       if (now >= open && now < close) {
         var left = close - now;
-        return {
-          open: true,
-          text: left <= 30
-            ? "Closing in " + left + " min"
-            : "Open now · until " + fmt(close)
-        };
+        return { open: true, text: left <= 30 ? T.closing(n(left)) : T.openUntil(fmt(close, lang)) };
       }
       if (now < open) {
         var until = open - now;
-        return {
-          open: false,
-          text: until <= 60
-            ? "Opens in " + until + " min"
-            : "Closed · opens " + fmt(open)
-        };
+        return { open: false, text: until <= 60 ? T.opensIn(n(until)) : T.opensAt(fmt(open, lang)) };
       }
     }
     // past the last session — next opening is tomorrow morning
-    return { open: false, text: "Closed · opens " + fmt(SESSIONS[0][0]) + " tomorrow" };
+    return { open: false, text: T.tomorrow(fmt(SESSIONS[0][0], lang)) };
   }
 
   function paintStatus() {
     var s = clinicStatus();
-    var pills = document.querySelectorAll(".status");
+    var lines = document.querySelectorAll(".status");
 
-    for (var i = 0; i < pills.length; i++) {
-      var pill = pills[i];
-      var txt = pill.querySelector(".txt");
+    for (var i = 0; i < lines.length; i++) {
+      var txt = lines[i].querySelector(".txt");
       if (txt) txt.textContent = s.text;
-      pill.classList.toggle("is-open", s.open);
-      pill.classList.toggle("is-closed", !s.open);
+      lines[i].classList.toggle("is-open", s.open);
+      lines[i].classList.toggle("is-closed", !s.open);
     }
 
-    // mark whichever session row is live inside the location cards
+    // highlight whichever session row is live in the hours table
     var now = clinicNow();
-    var rows = document.querySelectorAll(".loc .hours .row");
+    var rows = document.querySelectorAll(".hours tr[data-session]");
     for (var j = 0; j < rows.length; j++) {
-      var sess = SESSIONS[j % SESSIONS.length];
+      var sess = SESSIONS[+rows[j].getAttribute("data-session")];
       rows[j].classList.toggle("now", now >= sess[0] && now < sess[1]);
     }
   }
 
   paintStatus();
   setInterval(paintStatus, 30000);
+  document.addEventListener("sc:langchange", paintStatus);
 
-  /* ---------- 2. scroll reveal (replaces AOS) ---------- */
-  var revealables = document.querySelectorAll(".reveal");
-
-  if (reduce || !("IntersectionObserver" in window)) {
-    revealables.forEach(function (el) { el.classList.add("in"); });
-  } else {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        var el = entry.target;
-        // stagger siblings so grids cascade instead of popping at once
-        var sibs = Array.prototype.slice.call(el.parentNode.children);
-        var idx = Math.min(sibs.indexOf(el), 5);
-        el.style.transitionDelay = (idx * 90) + "ms";
-        el.classList.add("in");
-        io.unobserve(el);
-      });
-    }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
-
-    revealables.forEach(function (el) { io.observe(el); });
-  }
-
-  /* ---------- 3. sticky header + scroll progress + action bar ---------- */
-  var nav = document.getElementById("siteNav");
-  var progress = document.getElementById("progress");
-  var actionbar = document.getElementById("actionbar");
-  var ticking = false;
-
-  function onScroll() {
-    var y = window.scrollY || window.pageYOffset;
-    var max = document.documentElement.scrollHeight - window.innerHeight;
-
-    if (nav) nav.classList.toggle("stuck", y > 8);
-    if (progress) progress.style.width = (max > 0 ? (y / max) * 100 : 0) + "%";
-    if (actionbar) actionbar.classList.toggle("show", y > 420);
-
-    ticking = false;
-  }
-
-  window.addEventListener("scroll", function () {
-    if (!ticking) { window.requestAnimationFrame(onScroll); ticking = true; }
-  }, { passive: true });
-  onScroll();
-
-  /* ---------- 4. active section in nav ---------- */
-  var navLinks = document.querySelectorAll(".nav-links a");
-  var sections = [];
-  navLinks.forEach(function (a) {
-    var el = document.querySelector(a.getAttribute("href"));
-    if (el) sections.push({ el: el, link: a });
-  });
-
-  if ("IntersectionObserver" in window && sections.length) {
-    var spy = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        navLinks.forEach(function (a) { a.classList.remove("active"); });
-        var match = sections.find(function (s) { return s.el === entry.target; });
-        if (match) match.link.classList.add("active");
-      });
-    }, { rootMargin: "-45% 0px -50% 0px" });
-
-    sections.forEach(function (s) { spy.observe(s.el); });
-  }
-
-  /* ---------- 5. mobile drawer ---------- */
-  var drawer = document.getElementById("drawer");
-  var burger = document.getElementById("burger");
-  var closeBtn = document.getElementById("closeDrawer");
-
-  function setDrawer(open) {
-    if (!drawer) return;
-    drawer.classList.toggle("open", open);
-    if (burger) burger.setAttribute("aria-expanded", String(open));
-    document.body.style.overflow = open ? "hidden" : "";
-    if (open) {
-      var first = drawer.querySelector("nav a");
-      if (first) first.focus({ preventScroll: true });
-    } else if (burger) {
-      burger.focus({ preventScroll: true });
-    }
-  }
-
-  if (burger) burger.addEventListener("click", function () { setDrawer(true); });
-  if (closeBtn) closeBtn.addEventListener("click", function () { setDrawer(false); });
-  if (drawer) {
-    drawer.querySelectorAll("a").forEach(function (a) {
-      a.addEventListener("click", function () { setDrawer(false); });
-    });
-  }
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && drawer && drawer.classList.contains("open")) setDrawer(false);
-  });
-
-  /* ---------- 6. theme toggle ---------- */
+  /* ---------- 2. theme toggle ---------- */
   var themeBtn = document.getElementById("themeBtn");
 
   function currentTheme() {
@@ -207,14 +130,29 @@
     });
   }
 
-  /* ---------- 7. seamless marquee ---------- */
-  var marquee = document.getElementById("marquee");
-  if (marquee && !reduce) {
-    // duplicate the items once so the -50% keyframe loops without a seam
-    marquee.innerHTML += marquee.innerHTML;
+  /* ---------- 3. mobile menu ---------- */
+  var header = document.getElementById("siteHeader");
+  var menuBtn = document.getElementById("menuBtn");
+
+  function setMenu(open) {
+    if (!header || !menuBtn) return;
+    header.classList.toggle("nav-open", open);
+    menuBtn.setAttribute("aria-expanded", String(open));
   }
 
-  /* ---------- 8. accordion: one open at a time ---------- */
+  if (menuBtn) {
+    menuBtn.addEventListener("click", function () {
+      setMenu(!header.classList.contains("nav-open"));
+    });
+    document.querySelectorAll("#siteNav a").forEach(function (a) {
+      a.addEventListener("click", function () { setMenu(false); });
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") setMenu(false);
+    });
+  }
+
+  /* ---------- 4. FAQ: one open at a time ---------- */
   var faqItems = document.querySelectorAll(".faq details");
   faqItems.forEach(function (d) {
     d.addEventListener("toggle", function () {
@@ -223,7 +161,7 @@
     });
   });
 
-  /* ---------- 9. footer year ---------- */
+  /* ---------- 5. footer year ---------- */
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 })();
